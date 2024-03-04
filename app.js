@@ -94,15 +94,11 @@ window.addEventListener("DOMContentLoaded", function () {
 });
 
 //show book
-function showBook(book) {
+function showBook(stars, book) {
 	const item = books[book];
 	image.src = item.img;
 	rating.textContent = item.rating;
-}
 
-/**star rating**/
-function executeRating(stars) {
-	const item = books[currentItem];
 	const starClassActive = "rating__star fas fa-star";
 	const starClassInactive = "rating__star far fa-star";
 	const starsLength = 5;
@@ -122,13 +118,36 @@ function executeRating(stars) {
 		};
 	});
 }
-executeRating(ratingStars);
+
+/**star rating**/
+/* function executeRating(stars) {
+	const item = books[currentItem];
+	const starClassActive = "rating__star fas fa-star";
+	const starClassInactive = "rating__star far fa-star";
+	const starsLength = 5;
+	const activeStars = item.rating_star;
+
+	let i;
+	stars.map((star) => {
+		star.onclick = () => {
+			i = activeStars - 1;
+			console.log(item);
+			console.log(i);
+			if (star.className === starClassInactive) {
+				for (i; i >= 0; --i) stars[i].className = starClassActive;
+			} else {
+				for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+			}
+		};
+	});
+} */
+//executeRating(ratingStars);
 nextBtn.addEventListener("click", function () {
 	currentItem++;
 	if (currentItem > books.length - 1) {
 		currentItem = 0;
 	}
-	showBook(currentItem);
+	showBook(ratingStars, currentItem);
 });
 
 prevBtn.addEventListener("click", function () {
@@ -136,5 +155,5 @@ prevBtn.addEventListener("click", function () {
 	if (currentItem < 0) {
 		currentItem = books.length - 1;
 	}
-	showBook(currentItem);
+	showBook(ratingStars, currentItem);
 });
