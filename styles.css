@@ -1,0 +1,307 @@
+/*
+=============== 
+Fonts
+===============
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+/*
+=============== 
+variables
+===============
+*/
+:root {
+	--clr-primary: #d49b6b;
+	--clr-light: #fdf4e8;
+	--clr-dark: hsl(88, 9%, 29%);
+	--clr-black: #222;
+	--clr-grey: hsl(210, 36%, 96%);
+	--ff-primary: "Montserrat", sans-serif;
+	--ff-secondary: "Open Sans", sans-serif;
+	--transition: all 0.3s linear;
+	--spacing: 0.25rem;
+	--radius: 0.5rem;
+	--light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+	--dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+	--max-width: 1170px;
+	--fixed-width: 620px;
+}
+
+/*
+=============== 
+Global Styles
+===============
+*/
+
+html {
+	scroll-behavior: smooth;
+}
+
+*,
+::after,
+::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--ff-primary);
+	background: var(--clr-grey);
+	color: var(--clr-dark);
+	line-height: 1.5;
+	font-size: 0.875rem;
+	cursor: url(book-cursor.svg), auto;
+}
+ul {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+img:not(.logo) {
+	width: 100%;
+}
+/* img {
+	display: block;
+} */
+.btn {
+	text-transform: uppercase;
+	background: transparent;
+	color: var(--clr-black);
+	padding: 0.375rem 0.75rem;
+	letter-spacing: var(--spacing);
+	display: inline-block;
+	transition: var(--transition);
+	font-size: 0.875rem;
+	border: 2px solid var(--clr-black);
+	cursor: pointer;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+	border-radius: var(--radius);
+}
+
+.btn-white {
+	color: var(--clr-light);
+	border-color: var(--clr-light);
+	padding: 0.5rem 1rem;
+}
+h1,
+h2,
+h3,
+h4 {
+	text-transform: capitalize;
+	line-height: 1.25;
+	margin-bottom: 0.75rem;
+	color: var(--clr-primary);
+}
+h1 {
+	letter-spacing: var(--spacing);
+	font-size: 3rem;
+}
+h2 {
+	font-size: 2rem;
+}
+h3 {
+	font-size: 1.25rem;
+}
+h4 {
+	font-size: 0.875rem;
+}
+p {
+	margin-bottom: 1.25rem;
+	color: var(--clr-dark);
+}
+main {
+	display: grid;
+	place-items: center;
+}
+
+@media screen and (min-width: 800px) {
+	h1 {
+		font-size: 4rem;
+	}
+	h2 {
+		font-size: 2.5rem;
+	}
+	h3 {
+		font-size: 1.75rem;
+	}
+	h4 {
+		font-size: 1rem;
+	}
+	body {
+		font-size: 1rem;
+	}
+	h1,
+	h2,
+	h3,
+	h4 {
+		line-height: 1;
+	}
+}
+/*nav*/
+.logo {
+	height: 50px;
+}
+nav {
+	background-color: var(--clr-light);
+	padding: 1rem 1.5rem;
+}
+.nav-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.nav-toggle {
+	font-size: 1.5rem;
+	color: var(--clr-black);
+	background: transparent;
+	border: none;
+	transition: var(--transition);
+	cursor: pointer;
+}
+
+.links-container {
+	height: 0;
+	overflow: hidden;
+	transition: var(--transition);
+}
+/*this was to toggle nav links but not necessary when doing it dynamically with height*/
+.show-links {
+	height: 200px;
+}
+
+/*fixed nav*/
+.fixed-nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%; /*prevents width decreasing when fixed nav is on*/
+	box-shadow: var(--light-shadow);
+}
+
+.links a {
+	color: var(--clr-black);
+	font-size: 1rem;
+	text-transform: capitalize;
+	display: block;
+	font-weight: bold;
+	padding: 0.75rem 0;
+	transition: var(--transition);
+}
+.links a:hover {
+	color: var(--clr-dark);
+}
+
+/*hero*/
+header {
+	min-height: 100vh;
+	background: linear-gradient(
+			13deg,
+			rgba(147, 120, 132, 1) 0%,
+			rgba(165, 129, 129, 0.4624145785876993) 50%
+		),
+		url(./leaves.jpg) center/cover no-repeat;
+}
+.banner {
+	min-height: 100vh;
+	display: grid;
+	place-items: center;
+	text-align: center;
+}
+.container h1 {
+	color: var(--clr-light);
+	display: flex;
+	max-width: 500px;
+	text-transform: capitalize;
+}
+.container p {
+	color: var(--clr-light);
+	max-width: 25rem;
+	margin: 0 auto;
+	margin-bottom: 1.25rem;
+	font-weight: 600;
+}
+/*sections*/
+.title h2 {
+	text-align: center;
+	text-transform: capitalize;
+	letter-spacing: 0;
+}
+.title span {
+	/* color: var(--clr-dark); */
+}
+
+#books {
+	display: grid;
+	place-items: center;
+}
+#book {
+	max-width: 80%;
+	max-height: 80%;
+}
+.book-container {
+	width: 80vw;
+	background-color: white;
+	padding: 1.5rem 2rem;
+	border-radius: var(--radius);
+	box-shadow: var(--light-shadow);
+	text-align: center;
+}
+figure {
+	position: relative;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+.prev-btn,
+.next-btn {
+	color: var(--clr-primary);
+	font-size: 1.25rem;
+	background: transparent;
+	border-color: transparent;
+	margin: 0 0.5rem;
+	transition: var(--transition);
+	cursor: pointer;
+}
+#rating {
+	padding-top: 0.5rem;
+	color: var(--clr-dark);
+}
+.top-link {
+	font-size: 0.5rem;
+	position: fixed;
+	bottom: 3rem;
+	right: 3rem;
+	background: var(--clr-primary);
+	width: 1rem;
+	height: 1rem;
+	display: grid;
+	place-items: center;
+	border-radius: 0.2rem;
+	color: var(--clr-grey);
+	animation: bounce 2s ease-in-out infinite;
+	visibility: hidden;
+}
+.go-top {
+	visibility: visible;
+}
+/*desktop*/
+/* .top-link {
+	width: 2rem;
+	height: 2rem;
+	border-radius: var(--radius);
+	
+} */
+
+/*desktop*/
+@keyframes bounce {
+	0% {
+		transform: scale(1);
+	}
+	50% {
+		transform: scale(1.5);
+	}
+	100% {
+		transform: scale(1);
+	}
+}

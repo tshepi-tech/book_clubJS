@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="author" content="Tshepi" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="website for a book club" />
+		<title>Leaf book club</title>
+		<link rel="icon" href="logo.JPG" type="image/x-icon" />
+		<!-- font-awesome -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+		/>
+		<link rel="stylesheet" href="styles.css" type="text/css" />
+	</head>
+	<body>
+		<header id="home">
+			<!-- navbar -->
+			<nav id="nav">
+				<div class="nav-center">
+					<!-- nav header -->
+					<div class="nav-header">
+						<img src="./logo.jpg" class="logo" alt="logo" />
+						<button class="nav-toggle">
+							<i class="fas fa-bars"></i>
+						</button>
+					</div>
+					<!-- links -->
+					<div class="links-container">
+						<ul class="links">
+							<li>
+								<a href="#home" class="scroll-link">home</a>
+							</li>
+							<li>
+								<a href="#books" class="scroll-link">books</a>
+							</li>
+							<li>
+								<a href="#faq" class="scroll-link">FAQ</a>
+							</li>
+							<li>
+								<a href="#contact" class="scroll-link">contact</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			<!-- banner -->
+			<div class="banner">
+				<div class="container">
+					<h1>The Leaf book club</h1>
+					<p>
+						We foster a vibrant community where borders dissolve and stories
+						unite connecting bibliophiles worldwide. Embrace diverse
+						perspectives as we blend literature, virtual discussions, and
+						cultural insights. Join the conversation and embark on literary
+						journeys together."
+					</p>
+					<a href="#contact" class="scroll-link btn btn-white">join us</a>
+				</div>
+			</div>
+		</header>
+		<!-- books -->
+		<section id="books" class="section">
+			<div class="title">
+				<h2>our <span>books</span></h2>
+			</div>
+			<div class="book-container">
+				<article class="book-item">
+					<figure>
+						<img
+							src="rise-book.jpg"
+							alt="book cover for RISE by Siya Kolisi"
+							id="book"
+						/>
+						<figcaption>Source: amazon.se</figcaption>
+					</figure>
+
+					<h4 id="rating">Rated:<span>Yet to review</span></h4>
+					<div class="button-container">
+						<button class="prev-btn btn">
+							<i class="fas fa-chevron-left"></i>
+						</button>
+						<button class="next-btn btn">
+							<i class="fas fa-chevron-right"></i>
+						</button>
+					</article>
+				</div>
+				<!--prev next buttons-->
+			</div>
+			
+		</section>
+		<!-- services -->
+		<section id="faq" class="section">
+			<div class="title">
+				<h2>frequent <span>questions</span></h2>
+			</div>
+		</section>
+		<!-- contact -->
+		<section id="contact" class="section">
+			<div class="title">
+				<h2>join <span>us</span></h2>
+			</div>
+		</section>
+		<!-- footer -->
+		<footer class="section">
+			<p>
+				Copyright &copy; by
+				<a href="https://www.linkedin.com/in/tshepiso-lehutjo/"
+					>TechLand group</a
+				>
+				<span id="date"></span>. All rights reserved
+			</p>
+		</footer>
+		<a class="scroll-link top-link" href="#home">
+			<i class="fas fa-arrow-up"></i>
+		</a>
+		<!-- javascript -->
+		<script src="app.js"></script>
+	</body>
+</html>
