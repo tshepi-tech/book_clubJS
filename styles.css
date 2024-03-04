@@ -221,6 +221,7 @@ header {
 	margin: 0 auto;
 	margin-bottom: 1.25rem;
 	font-weight: 600;
+	padding: 0 0.5rem;
 }
 /*sections*/
 .title h2 {
@@ -267,6 +268,8 @@ figure {
 	padding-top: 0.5rem;
 	color: var(--clr-dark);
 }
+.stars {
+}
 .top-link {
 	font-size: 0.5rem;
 	position: fixed;
@@ -284,6 +287,19 @@ figure {
 }
 .go-top {
 	visibility: visible;
+}
+/*footer*/
+
+footer {
+	background: var(--clr-light);
+	padding: 5rem 1rem;
+}
+footer p {
+	color: var(--clr-dark);
+	text-align: center;
+	text-transform: capitalize;
+	letter-spacing: var(--spacing);
+	margin-bottom: 0;
 }
 /*desktop*/
 /* .top-link {

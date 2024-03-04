@@ -7,19 +7,25 @@ const books = [
 	{
 		id: 0,
 		img: "./ineverymirror.jpg",
-		rating: "captivating writing. 4/5",
+		rating: "captivating writing.",
+		rating_star: 4,
 	},
 	{
 		id: 1,
 		img: "./rise-book.jpg",
 		rating: "not yet reviewed",
+		rating_star: 3,
 	},
 	{
 		id: 2,
 		img: "./alchemist.jpg",
 		rating: "not yet reviewed",
+		rating_star: 0,
 	},
 ];
+
+/*stars array */
+const ratingStars = [...document.getElementsByClassName("rating__star")];
 
 //**set automatic date in footer**//
 const date = document.getElementById("date");
@@ -67,10 +73,13 @@ window.addEventListener("scroll", function () {
 	}
 });
 
+//**scroll**//
+
 //**map books**//
 
 const image = document.getElementById("book");
 const rating = document.getElementById("rating");
+const activeStars = document.querySelector(".stars");
 
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
@@ -91,6 +100,29 @@ function showBook(book) {
 	rating.textContent = item.rating;
 }
 
+/**star rating**/
+function executeRating(stars) {
+	const item = books[currentItem];
+	const starClassActive = "rating__star fas fa-star";
+	const starClassInactive = "rating__star far fa-star";
+	const starsLength = 5;
+	const activeStars = item.rating_star;
+
+	let i;
+	stars.map((star) => {
+		star.onclick = () => {
+			i = activeStars - 1;
+			console.log(item);
+			console.log(i);
+			if (star.className === starClassInactive) {
+				for (i; i >= 0; --i) stars[i].className = starClassActive;
+			} else {
+				for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
+			}
+		};
+	});
+}
+executeRating(ratingStars);
 nextBtn.addEventListener("click", function () {
 	currentItem++;
 	if (currentItem > books.length - 1) {
