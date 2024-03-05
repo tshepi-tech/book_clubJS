@@ -6,19 +6,25 @@
 const books = [
 	{
 		id: 0,
+		name: "In every mirrior she's black",
 		img: "./ineverymirror.jpg",
+		url: "https://1337co.de/4y",
 		rating: "captivating writing.",
 		rating_star: 4,
 	},
 	{
 		id: 1,
+		name: "Rise",
 		img: "./rise-book.jpg",
+		url: "https://1337co.de/4x",
 		rating: "not yet reviewed",
 		rating_star: 3,
 	},
 	{
 		id: 2,
+		name: "The Alchemist",
 		img: "./alchemist.jpg",
+		url: "https://1337co.de/4z",
 		rating: "not yet reviewed",
 		rating_star: 0,
 	},
@@ -63,13 +69,13 @@ window.addEventListener("scroll", function () {
 	if (scrollHeight > navHeight) {
 		navbar.classList.add("fixed-nav");
 	} else {
-		navbar.classList.remove("fixed-nav");
+		navbar.classListNaNpxove("fixed-nav");
 	}
 
 	if (scrollHeight > 400) {
 		topLink.classList.add("go-top");
 	} else {
-		topLink.classList.remove("go-top");
+		topLink.classListNaNpxove("go-top");
 	}
 });
 
@@ -79,6 +85,8 @@ window.addEventListener("scroll", function () {
 
 const image = document.getElementById("book");
 const rating = document.getElementById("rating");
+const url = document.getElementById("url");
+
 const activeStars = document.querySelector(".stars");
 
 const prevBtn = document.querySelector(".prev-btn");
@@ -91,6 +99,8 @@ window.addEventListener("DOMContentLoaded", function () {
 	const item = books[currentItem];
 	image.src = item.img;
 	rating.textContent = item.rating;
+	url.href = item.url;
+	url.textContent = item.name;
 });
 
 //show book
@@ -98,6 +108,8 @@ function showBook(stars, book) {
 	const item = books[book];
 	image.src = item.img;
 	rating.textContent = item.rating;
+	url.href = item.url;
+	url.textContent = item.name;
 
 	const starClassActive = "rating__star fas fa-star";
 	const starClassInactive = "rating__star far fa-star";
@@ -156,4 +168,34 @@ prevBtn.addEventListener("click", function () {
 		currentItem = books.length - 1;
 	}
 	showBook(ratingStars, currentItem);
+});
+
+/** scroll**/
+const scrollLinks = document.querySelectorAll(".scroll-link");
+scrollLinks.forEach((link) => {
+	link.addEventListener("click", (e) => {
+		e.preventDefault();
+		const id = e.currentTarget.getAttribute("href").slice(1);
+		const element = document.getElementById(id);
+
+		const navHeight = navbar.getBoundingClientRect().height;
+		const containerHeight = linksContainer.getBoundingClientRect().height;
+		const fixedNav = navbar.classList.contains("fixed-nav");
+
+		let position = element.offsetTop - navHeight;
+
+		if (!fixedNav) {
+			position = position - navHeight;
+		}
+		if (navHeight > 82) {
+			position = position + containerHeight;
+		}
+
+		console.log(position);
+		window.scrollTo({
+			left: 0,
+			top: position,
+		});
+		linksContainer.style.height = 0;
+	});
 });

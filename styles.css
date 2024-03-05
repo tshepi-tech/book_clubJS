@@ -37,6 +37,7 @@ html {
 	scroll-behavior: smooth;
 }
 
+/*this is why there is no padding on headings etc. look into this*/
 *,
 ::after,
 ::before {
@@ -269,6 +270,7 @@ figure {
 	color: var(--clr-dark);
 }
 .stars {
+	display: none;
 }
 .top-link {
 	font-size: 0.5rem;
@@ -287,6 +289,14 @@ figure {
 }
 .go-top {
 	visibility: visible;
+}
+
+#faq,
+#contact {
+	height: 80vh;
+}
+#faq {
+	background-color: white;
 }
 /*footer*/
 
