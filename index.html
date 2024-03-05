@@ -101,6 +101,7 @@
 		<section id="faq" class="section">
 			<div class="title">
 				<h2>frequent <span>questions</span></h2>
+				</div>
 				<article class="faq_container">
 					<p class="question">I have never been in a book club before, how does it work?</p>
 					<p class="answer">
@@ -120,16 +121,32 @@
 						Joining the book club is free. You cover the costs of getting the book and travel if you are able to meet in person.
 					</p>
 				</article>
-				
-				
-				</article>
-			</div>
 		</section>
 		<!-- contact -->
 		<section id="contact" class="section">
 			<div class="title">
 				<h2>join <span>us</span></h2>
 			</div>
+			<div class="form_container question">
+			<form method="POST" id="form">
+
+    <input type="hidden" name="access_key" value="183d0d32-607f-4350-869a-e2e14f2f3aac">
+<div class="form_box ">
+	<label for="name">Name</label>
+	<input type="text" name="name" required></div>
+    <div class="form_box">
+		<label for="email">Email</label><input type="email" name="email" required></div>
+
+    <div class="form_box"><label for="message">Do you have a book suggestion? Let us know</label><textarea  name="message" required></textarea></div>
+    
+    <div class="h-captcha" data-captcha="true"></div>
+
+    <button type="submit" class="btn">Submit Form</button>
+
+    <div id="result"></div>
+
+</form>
+</div>
 		</section>
 		<!-- footer -->
 		<footer class="section">
@@ -145,6 +162,8 @@
 			<i class="fas fa-arrow-up"></i>
 		</a>
 		<!-- javascript -->
+		<script src="https://web3forms.com/client/script.js" async defer></script>
 		<script src="app.js"></script>
+
 	</body>
 </html>

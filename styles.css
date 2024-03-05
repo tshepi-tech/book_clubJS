@@ -242,13 +242,15 @@ header {
 	max-width: 80%;
 	max-height: 80%;
 }
-.book-container {
+.book-container,
+form {
 	width: 80vw;
 	background-color: white;
 	padding: 1.5rem 2rem;
 	border-radius: var(--radius);
 	box-shadow: var(--light-shadow);
 	text-align: center;
+	margin-bottom: 3rem;
 }
 figure {
 	border-radius: 50%;
@@ -289,9 +291,18 @@ figure {
 .go-top {
 	visibility: visible;
 }
-
 #contact {
 	min-height: 80vh;
+	/* display: grid; */
+}
+.form_container {
+	margin-top: 6rem;
+	display: flex;
+	justify-content: center;
+}
+.form_box {
+	display: flex;
+	flex-direction: column;
 }
 #faq {
 	background-color: white;
@@ -310,7 +321,29 @@ figure {
 	content: url(question.svg);
 } */
 /*footer*/
-
+form {
+	width: 90vw;
+}
+input {
+	width: 100%;
+	padding: 0.75rem 1.25rem;
+	margin: 0.5rem 0;
+	display: inline-block;
+	border: 0.06rem solid var(--clr-black);
+	border-radius: 0.25rem;
+	box-sizing: border-box;
+}
+textarea {
+	height: 6rem;
+}
+.h-captcha {
+	margin: 2rem 0;
+}
+button[type="submit"] {
+	color: var(--clr-light);
+	background-color: var(--clr-primary);
+	border: none;
+}
 footer {
 	background: var(--clr-light);
 	padding: 5rem 1rem;
