@@ -69,13 +69,13 @@ window.addEventListener("scroll", function () {
 	if (scrollHeight > navHeight) {
 		navbar.classList.add("fixed-nav");
 	} else {
-		navbar.classListNaNpxove("fixed-nav");
+		navbar.classList.remove("fixed-nav");
 	}
 
 	if (scrollHeight > 400) {
 		topLink.classList.add("go-top");
 	} else {
-		topLink.classListNaNpxove("go-top");
+		topLink.classList.remove("go-top");
 	}
 });
 
