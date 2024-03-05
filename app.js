@@ -79,8 +79,6 @@ window.addEventListener("scroll", function () {
 	}
 });
 
-//**scroll**//
-
 //**map books**//
 
 const image = document.getElementById("book");
@@ -191,7 +189,6 @@ scrollLinks.forEach((link) => {
 			position = position + containerHeight;
 		}
 
-		console.log(position);
 		window.scrollTo({
 			left: 0,
 			top: position,

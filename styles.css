@@ -290,13 +290,25 @@ figure {
 	visibility: visible;
 }
 
-#faq,
 #contact {
-	height: 80vh;
+	min-height: 80vh;
 }
 #faq {
 	background-color: white;
 }
+
+.faq_container {
+	padding: 0rem 0.5rem 0.25rem;
+}
+.faq_container p {
+	margin-bottom: 0.25rem;
+}
+.question {
+	font-weight: bold;
+}
+/* .question::before {
+	content: url(question.svg);
+} */
 /*footer*/
 
 footer {
