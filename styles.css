@@ -271,7 +271,11 @@ figure {
 	color: var(--clr-dark);
 }
 .stars {
-	display: none;
+}
+
+.stars img {
+	width: 20px;
+	height: 20px;
 }
 .top-link {
 	font-size: 0.5rem;

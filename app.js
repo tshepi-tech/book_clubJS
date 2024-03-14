@@ -18,7 +18,7 @@ const books = [
 		img: "./rise-book.jpg",
 		url: "https://1337co.de/4A",
 		rating: "not yet reviewed",
-		rating_star: 3,
+		rating_star: 0,
 	},
 	{
 		id: 2,
@@ -29,9 +29,6 @@ const books = [
 		rating_star: 0,
 	},
 ];
-
-/*stars array */
-const ratingStars = [...document.getElementsByClassName("rating__star")];
 
 //**set automatic date in footer**//
 const date = document.getElementById("date");
@@ -84,7 +81,6 @@ window.addEventListener("scroll", function () {
 const image = document.getElementById("book");
 const rating = document.getElementById("rating");
 const url = document.getElementById("url");
-
 const activeStars = document.querySelector(".stars");
 
 const prevBtn = document.querySelector(".prev-btn");
@@ -99,65 +95,58 @@ window.addEventListener("DOMContentLoaded", function () {
 	rating.textContent = item.rating;
 	url.href = item.url;
 	url.textContent = item.name;
+
+	let stars = range(item.rating_star).map(function () {
+		return `<img
+          alt=""
+          className="gold-star"
+          src="https://sandpack-bundler.vercel.app/img/gold-star.svg"
+        />`;
+	});
+	stars = stars.join("");
+	activeStars.innerHTML = stars;
 });
 
+const range = (start, end, step = 1) => {
+	let output = [];
+
+	if (typeof end === "undefined") {
+		end = start;
+		start = 0;
+	}
+
+	for (let i = start; i < end; i += step) {
+		output.push(i);
+	}
+
+	return output;
+};
+
 //show book
-function showBook(stars, book) {
+function showBook(book) {
 	const item = books[book];
 	image.src = item.img;
 	rating.textContent = item.rating;
 	url.href = item.url;
 	url.textContent = item.name;
 
-	const starClassActive = "rating__star fas fa-star";
-	const starClassInactive = "rating__star far fa-star";
-	const starsLength = 5;
-	const activeStars = item.rating_star;
-
-	let i;
-	stars.map((star) => {
-		star.onclick = () => {
-			i = activeStars - 1;
-			console.log(item);
-			console.log(i);
-			if (star.className === starClassInactive) {
-				for (i; i >= 0; --i) stars[i].className = starClassActive;
-			} else {
-				for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
-			}
-		};
+	let stars = range(item.rating_star).map(function () {
+		return `<img
+          alt=""
+          className="gold-star"
+          src="https://sandpack-bundler.vercel.app/img/gold-star.svg"
+        />`;
 	});
+	stars = stars.join("");
+	activeStars.innerHTML = stars;
 }
 
-/**star rating**/
-/* function executeRating(stars) {
-	const item = books[currentItem];
-	const starClassActive = "rating__star fas fa-star";
-	const starClassInactive = "rating__star far fa-star";
-	const starsLength = 5;
-	const activeStars = item.rating_star;
-
-	let i;
-	stars.map((star) => {
-		star.onclick = () => {
-			i = activeStars - 1;
-			console.log(item);
-			console.log(i);
-			if (star.className === starClassInactive) {
-				for (i; i >= 0; --i) stars[i].className = starClassActive;
-			} else {
-				for (i; i < starsLength; ++i) stars[i].className = starClassInactive;
-			}
-		};
-	});
-} */
-//executeRating(ratingStars);
 nextBtn.addEventListener("click", function () {
 	currentItem++;
 	if (currentItem > books.length - 1) {
 		currentItem = 0;
 	}
-	showBook(ratingStars, currentItem);
+	showBook(currentItem);
 });
 
 prevBtn.addEventListener("click", function () {
@@ -165,7 +154,7 @@ prevBtn.addEventListener("click", function () {
 	if (currentItem < 0) {
 		currentItem = books.length - 1;
 	}
-	showBook(ratingStars, currentItem);
+	showBook(currentItem);
 });
 
 /** scroll**/
